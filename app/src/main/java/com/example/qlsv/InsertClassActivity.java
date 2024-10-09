@@ -38,7 +38,6 @@ public class InsertClassActivity extends Activity{
         initWidget();
         btnSaveClass.setOnClickListener (new OnClickListener() {
             @Override
-           // e
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 long id = saveClass();
