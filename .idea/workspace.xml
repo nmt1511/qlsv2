@@ -26,7 +26,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edd66208-c9ff-4875-be0a-6500924267fd" name="Changes" comment="Merge remote-tracking branch 'origin/master'" />
+    <list default="true" id="edd66208-c9ff-4875-be0a-6500924267fd" name="Changes" comment="cap nhat">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +94,7 @@
     <option name="NEW_BASE" value="master" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -241,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728487634631</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="cap nhat">
+      <option name="closed" value="true" />
+      <created>1728491451011</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728491451011</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,6 +270,8 @@
     <MESSAGE value="them linh tinh" />
     <MESSAGE value="add notify.java" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="Merge remote-tracking branch 'github/master'" />
+    <MESSAGE value="cap nhat" />
+    <option name="LAST_COMMIT_MESSAGE" value="cap nhat" />
   </component>
 </project>
