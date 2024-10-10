@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/txtClassLabel"
-        android:layout_marginTop="17dp" android:stretchColumns="">
+        android:layout_marginTop="17dp"
+        android:stretchColumns="*">
         <TableRow
             android:id="@+id/tableRowl"
             android:layout_width="wrap_content"
@@ -25,7 +26,7 @@
                 android:id="@+id/txtCodeClass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên lớp học:" />
+                android:text="Mã lớp học:" />
             <EditText
                 android:id="@+id/edtClassCode"
                 android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
                 <requestFocus />
             </EditText>
         </TableRow>
-        <TableRoW
+        <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
@@ -48,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10" />
-        </TableRoW>
+        </TableRow>
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
@@ -89,5 +90,6 @@
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:text="Đóng" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -72,25 +72,23 @@ public class ClassList extends Activity {
     @Override
     public boolean onContextItemSelected (MenuItem item) {
 // TODO Auto-generated method stub
-        switch (item.getItemId())
-        {
-            case R.id.mnueditclass:
-                Room room = classList.get(posselected);
-                Bundle bundle = new Bundle();
-                Intent intent = new Intent(ClassList.this, EditClassActivity.class);
-                bundle.putSerializable("room", room);
-                intent.putExtra("data", bundle);
-                startActivityForResult(intent, ClassList.EDIT_CLASS);
-                return true;
-            case R.id.mnudeleteclass:
-                comfirmDelete();
-                return true;
-            case R.id.mnucloseclass:
-                Notify.exit(this);
-                return true;
-            default:
-                return super.onContextItemSelected(item);
+        if (item.getItemId() == R.id.mnueditclass) {
+            Room room = classList.get(posselected);
+            Bundle bundle = new Bundle();
+            Intent intent = new Intent(ClassList.this, EditClassActivity.class);
+            bundle.putSerializable("room", room);
+            intent.putExtra("data", bundle);
+            startActivityForResult(intent, ClassList.EDIT_CLASS);
+            return true;
+        } else if (item.getItemId() == R.id.mnudeleteclass) {
+            comfirmDelete();
+            return true;
+        } else {
+            Notify.exit(this);
+            return true;
         }
+//        default:
+//        return super.onContextItemSelected(item);
     }
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
@@ -108,7 +106,7 @@ public class ClassList extends Activity {
             case ClassList.EDIT_CLASS:
                 if (resultCode == ClassList.SAVE_CLASS){
                 Bundle bundle =data.getBundleExtra("data");
-                Room room = (Room)bundle.getSerializable("lop");
+                Room room = (Room)bundle.getSerializable("room");
                 classList.set(posselected, room);
                 adapter.notifyDataSetChanged();
             }

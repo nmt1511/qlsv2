@@ -18,6 +18,7 @@ public class login extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initDB();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -68,5 +69,53 @@ public class login extends Activity {
             }
             return false;
         }
+
+    private void initDB() {
+        db = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        String sql;
+        try {
+            if (!isTableExists(db, "tbluser")) {
+                sql = "CREATE TABLE tbluser (id_user INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,";
+                sql += "username TEXT NOT NULL, ";
+                sql += "password TEXT NOT NULL)";
+                db.execSQL(sql);
+                sql = "insert into tbluser (username, password) values('admin', 'admin')";
+                db.execSQL(sql);
+            }
+            if (!isTableExists(db, "tblclass")) {
+                sql = "CREATE TABLE tblclass (";
+                sql += "id_class INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,";
+                sql += "code_class TEXT, ";
+                sql += "name_class TEXT,";
+                sql += "number_student INTEGER);";
+                db.execSQL(sql);
+            }
+            if (!isTableExists(db, "tblstudent")) {
+                sql = "CREATE TABLE tblstudent (";
+                sql += "id_student INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,";
+                sql += "id_class INTEGER NOT NULL,";
+                sql += "code_student TEXT NOT NULL,";
+                sql += "name_student TEXT,";
+                sql += "gender_student NUMERIC,";
+                sql += "birthday_student TEXT,";
+                sql += "address_student TEXT);";
+                db.execSQL(sql);
+            }
+        } catch (Exception ex) {
+            Toast.makeText(this, "Khởi tạo cơ sở dữ liệu không thành công", Toast.LENGTH_LONG).show();
+        }
+    }
+    private boolean isTableExists(SQLiteDatabase database, String tableName) {
+        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + tableName + "'";
+        Cursor cursor = database.rawQuery(query, null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+                cursor.close();
+                return true;
+            }
+            cursor.close();
+        }
+        return false;
+    }
 
     }

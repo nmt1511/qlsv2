@@ -19,32 +19,55 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 public class InsertClassActivity extends Activity{
-        Button btnSaveClass, btnClearClass, btnCloseClass;
-        EditText edtClassCode, edtClassName, edtClassNumber;
-        SQLiteDatabase db;
-        private void initWidget() {
+    Button btnSaveClass, btnClearClass, btnCloseClass;
+    EditText edtClassCode, edtClassName, edtClassNumber;
+    SQLiteDatabase db;
+
+    private void initWidget() {
         btnSaveClass = (Button) findViewById(R.id.btnSaveInsertClass);
         btnClearClass = (Button) findViewById(R.id.btnClearInsertClass);
         btnCloseClass = (Button) findViewById(R.id.btnCloseInsertClass);
         edtClassCode = (EditText) findViewById(R.id.edtClassCode);
         edtClassName = (EditText) findViewById(R.id.edtClassName);
         edtClassNumber = (EditText) findViewById(R.id.edtClassNumber);
-        }
+    }
 
+    private long saveClass() {
+        try{
+            db = openOrCreateDatabase(login.DATABASE_NAME, MODE_PRIVATE, null);
+            ContentValues values = new ContentValues();
+            values.put("code_class", edtClassCode.getText().toString());
+            values.put("name_class", edtClassName.getText().toString());
+            values.put("number_student", Integer.parseInt(edtClassNumber.getText().toString()));
+            long id=db.insert("tblclass", null, values);
+            if(id!=-1){
+                return id;
+            }
+        }
+        catch (Exception ex){
+            Toast.makeText(getApplication(), "Lỗi"+ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        return -1;
+
+    }
+    private void clearClass(){
+        edtClassCode.setText("");
+        edtClassName.setText("");
+        edtClassNumber.setText("");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView(R.layout.activity_insert_class);
         initWidget();
-        btnSaveClass.setOnClickListener (new OnClickListener() {
+        btnSaveClass.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
+            public void onClick(View view) {
                 long id = saveClass();
                 Bundle bundle = new Bundle();
                 Intent intent = getIntent();
                 if (id != -1) { // =-1 Thêm không thành công
-                // Lớp học gồm 4 trường Id class, code class name class, number class
+                    // Lớp học gồm 4 trường Id class, code class name class, number class
                     Room r = new Room(id + "", edtClassCode.getText().toString(),
                             edtClassName.getText().toString(), edtClassNumber.getText().toString());
                     bundle.putSerializable("room", r);
@@ -55,41 +78,17 @@ public class InsertClassActivity extends Activity{
                 }
             }
         });
-        btnClearClass.setOnClickListener(new OnClickListener() {
+        btnCloseClass.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-// TODO Auto-generated method stub clearClass();
+            public void onClick(View view) {
+                Notify.exit(InsertClassActivity.this);
             }
         });
-        btnCloseClass.setOnClickListener(new OnClickListener() {
+        btnClearClass.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-// TODO Auto-generated method stub Notify.exit(InsertClassActivity.this);
+            public void onClick(View view) {
+                clearClass();
             }
         });
-        }
-
-        private long saveClass() {
-            try{
-                db = openOrCreateDatabase(login.DATABASE_NAME, MODE_PRIVATE, null);
-                ContentValues values = new ContentValues();
-                values.put("code_class", edtClassCode.getText().toString());
-                values.put("name_class", edtClassName.getText().toString());
-                values.put("number_student", Integer.parseInt(edtClassNumber.getText().toString()));
-                long id=db.insert("tblclass", null, values);
-                if(id!=-1){
-                   return id;
-                }
-            }
-            catch (Exception ex){
-                Toast.makeText(getApplication(), "Lỗi"+ex.getMessage(), Toast.LENGTH_LONG).show();
-            }
-            return -1;
-
-        }
-        private void clearClass(){
-            edtClassCode.setText("");
-            edtClassName.setText("");
-            edtClassNumber.setText("");
-        }
+    }
 }

@@ -15,6 +15,12 @@
     <ListView
         android:id="@+id/lstclass"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnexit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Thoat"/>
 
 </LinearLayout>
