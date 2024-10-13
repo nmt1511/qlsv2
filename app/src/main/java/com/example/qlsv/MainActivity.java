@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent intent = new Intent(MainActivity.this, sinhvien.class);
+                Intent intent = new Intent(MainActivity.this, StudentListActivity.class);
                 startActivity(intent);
             }
         });

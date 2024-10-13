@@ -7,16 +7,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnOpenClass"
+        android:id="@+id/btnOpenStudent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm lớp học"
+        android:text="Thêm sinh viên"
         android:gravity="center"/>
     <ListView
-        android:id="@+id/lstclass"
+        android:id="@+id/lstStudent"
+        android:layout_marginTop="0sp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="fill_parent" />
     <Button
         android:id="@+id/btnexit"
         android:layout_width="fill_parent"

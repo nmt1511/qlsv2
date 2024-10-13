@@ -34,36 +34,50 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class MyAdapterStudent extends ArrayAdapter<Student> {
+
     ArrayList<Student> studentList = new ArrayList<>();
 
     public MyAdapterStudent(@NonNull Context context, int resource, @NonNull ArrayList<Student> objects) {
         super(context, resource, objects);
         studentList = objects;
     }
-        @Override
-        public View getView ( int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            View v = convertView;
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.my_student, null);
-            ImageView imgstudent = (ImageView) v.findViewById(R.id.imgStudent);
-            TextView txtclassstudent = (TextView) v.findViewById(R.id.txtStudentClass);
-            TextView txtnamestudent = (TextView) v.findViewById(R.id.txtStudentName);
-            TextView txtbirthdaystudent = (TextView) v.findViewById(R.id.txtStudentBirthday);
-            TextView txtgenderstudent = (TextView) v.findViewById(R.id.txtStudentGender);
-            TextView txtaddressstudent = (TextView) v.findViewById(R.id.txtStudentAddress);
-            if (position == 0) {
-                txtclassstudent.setBackgroundColor(Color.WHITE);
-                txtnamestudent.setBackgroundColor(Color.WHITE);
-                txtbirthdaystudent.setBackgroundColor(Color.WHITE);
-                txtgenderstudent.setBackgroundColor(Color.WHITE);
-                txtaddressstudent.setBackgroundColor(Color.WHITE);
-            }
-            imgstudent.setImageResource(R.drawable.ic_launcher_background);
-            txtclassstudent.setText("Ma lớp: " + studentList.get(position).getName_class());
-            txtnamestudent.setText("Tên sinh viên: " + studentList.get(position).getName_student());
-            txtbirthdaystudent.setText("Ngay sinh: " + studentList.get(position).getBirthday_student());
-            txtgenderstudent.setText("gioi tính: " + studentList.get(position).getGender_student());
-            txtaddressstudent.setText("Địa chỉ: " + studentList.get(position).getAddress_student());
-            return v;
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent){
+        View v = convertView;
+        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        v = inflater.inflate(R.layout.my_student,null);
+        ImageView imgStudent = (ImageView) v.findViewById(R.id.imgStudent);
+        TextView txtclassstudent = (TextView) v.findViewById(R.id.txtStudentClass);
+        TextView txtnamestudent = (TextView) v.findViewById(R.id.txtStudentName);
+        TextView txtcodestudent = (TextView)v.findViewById(R.id.txtStudentCode);
+        TextView txtnbirthdaystudent = (TextView) v.findViewById(R.id.txtStudentBirthday);
+        TextView txtgenderStudent = (TextView) v.findViewById(R.id.txtStudentGender);
+        TextView txtaddress = (TextView) v.findViewById(R.id.txtStudentAddress);
+        //tạo tiêu đề listview
+//        if(position == 0){
+//            txtclassstudent.setBackgroundColor(Color.WHITE);
+//            txtnamestudent.setBackgroundColor(Color.WHITE);
+//            txtcodestudent.setBackgroundColor(Color.WHITE);
+//            txtnbirthdaystudent.setBackgroundColor(Color.WHITE);
+//            txtgenderStudent.setBackgroundColor(Color.WHITE);
+//            txtaddress.setBackgroundColor(Color.WHITE);
+//        }
+        //gán giá trị cho listview theo position
+        String gender;
+        if(studentList.get(position).getGender_student().equals("1")){
+            gender = "Nam";
+            imgStudent.setImageResource(R.drawable.man);
         }
+        else{
+            imgStudent.setImageResource(R.drawable.woman);
+            gender = "Nữ";
+        }
+        txtclassstudent.setText("Mã lớp: "+ studentList.get(position).getName_class());
+        txtcodestudent.setText("MSSV: "+studentList.get(position).getCode_student());
+        txtnamestudent.setText("Tên sinh viên: " + studentList.get(position).getName_student());
+        txtnbirthdaystudent.setText("Ngày Sinh: " + studentList.get(position).getBirthday_student());
+        txtgenderStudent.setText("Giới tính: "+ gender.toString());
+        txtaddress.setText("Địa chỉ: " + studentList.get(position).getAddress_student());
+        return v;
     }
+}

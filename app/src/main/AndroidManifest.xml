@@ -25,6 +25,10 @@
         <activity android:name=".ClassList"/>
         <activity android:name=".InsertClassActivity"/>
         <activity android:name=".EditClassActivity"/>
+        <activity android:name=".InsertStudentActivity"/>
+        <activity android:name=".EditStudentActivity"/>
+        <activity android:name=".StudentListActivity"/>
+        <activity android:name=".Notify"/>
 
     </application>
 
