@@ -32,7 +32,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtEditClassCode"
+                android:id="@+id/edtEditClassCode"
                 android:ems="10">
                 <requestFocus />
             </EditText>
@@ -79,19 +79,19 @@
         android:layout_marginLeft="0sp"
         android:layout_below="@+id/tableLayout1" >
         <Button
-            android:id="@+id/btnSaveInsertClass"
+            android:id="@+id/btnSaveEditClass"
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:text="Thêm" />
         <Button
-            android:id="@+id/btnClearInsertClass"
+            android:id="@+id/btnClearEdit"
             android:layout_width="90sp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:text="Xóa trắng" />
         <Button
-            android:id="@+id/btnCloseInsertClass"
+            android:id="@+id/btnCloseEditClass"
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:text="Đóng" />

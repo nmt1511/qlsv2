@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- ImageView for student image -->
+    <ImageView
+        android:id="@+id/imgStudent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_launcher_background"
+        android:contentDescription="hello"
+        android:layout_marginEnd="8dp" />
+
+    <!-- Vertical layout for TextViews -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- TextView for student class -->
+        <TextView
+            android:id="@+id/txtStudentClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- TextView for student name -->
+        <TextView
+            android:id="@+id/txtStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="14sp" />
+
+        <!-- TextView for student birthday -->
+        <TextView
+            android:id="@+id/txtStudentBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday"
+            android:textSize="14sp" />
+
+        <!-- TextView for student gender -->
+        <TextView
+            android:id="@+id/txtStudentGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="14sp" />
+
+        <!-- TextView for student address -->
+        <TextView
+            android:id="@+id/txtStudentAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</LinearLayout>

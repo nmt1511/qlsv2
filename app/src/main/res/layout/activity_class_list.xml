@@ -22,5 +22,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Thoat"/>
+    <Button
+        android:id="@+id/btnOpenStudent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm sinh viên"
+        android:gravity="center"/>
+    <ListView
+        android:id="@+id/lstStudent"
+        android:layout_marginTop="0sp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 </LinearLayout>

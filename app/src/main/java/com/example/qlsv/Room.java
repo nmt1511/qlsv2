@@ -55,32 +55,6 @@ public class Room implements Serializable {
     public void setClass_number(String class_number) {
         this.class_number = class_number;
     }
-//    public String getId_class() {
-//        return id_class;
-//    }
-//
-//    public void setId_class(String id_class) {
-//        this.id_class = id_class;
-//    }
-//    public void setClass_number (String class_number) {
-//        this.class_number = class_number;
-//    }
-//        public String getCode_class() {
-//            return code_class;
-//        }
-//        public void setCode_class (String code_class){
-//            this.code_class= code_class;
-//        }
-//    }
-//    public String getName_class() {
-//        return name_class;
-//    }
-//    public void setName_class(String name_class) {
-//        this.name_class = name_class;
-//    }
-//    @Override
-//    public String toString() {
-//        return name_class ;
-//    }
+
 
 }
